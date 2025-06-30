@@ -8,6 +8,12 @@ Complete solution for factory equipment monitoring using simulated sensors.
 - Alerting system
 - Docker-based deployment
 
+## Hardware Requirements
+- ESP32 microcontroller
+- DHT22 temperature/humidity sensor
+- ADXL345 vibration sensor
+- Breadboard & jumper wires
+
 ## Setup
 1. Clone repository:
 ```bash
