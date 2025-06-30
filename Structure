@@ -1,0 +1,23 @@
+Industrial-IoT-Monitoring/
+├── device-simulator/       # Simulated ESP32 firmware
+│   ├── main.py             # Python-based device simulator
+│   ├── requirements.txt
+│   └── README.md
+├── backend/                # Cloud backend
+│   ├── app.py              # Flask REST API
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── database.py         # MongoDB operations
+├── dashboard/              # Real-time monitoring UI
+│   ├── public/
+│   │   ├── index.html      # Dashboard interface
+│   │   ├── styles.css
+│   │   └── script.js       # Socket.io client
+│   ├── server.js           # Dashboard server
+│   └── package.json
+├── docker-compose.yml      # Full system orchestration
+├── schematics/             # Circuit diagrams
+│   └── iot-monitoring.png
+├── postman/                # API test collection
+│   └── IOT-API.postman_collection.json
+└── README.md               # Setup/usage instructions
