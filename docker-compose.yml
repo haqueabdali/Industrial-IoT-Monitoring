@@ -1,30 +1,31 @@
 version: '3.8'
 
 services:
-  device-simulator:
-    build: ./device-simulator
-    depends_on:
-      - backend
-    environment:
-      - API_ENDPOINT=http://backend:5000/data
-
   backend:
     build: ./backend
     ports:
       - "5000:5000"
+    environment:
+      MONGO_URI: "mongodb://mongodb:27017/iot_factory"
+      FLASK_ENV: "production"
     depends_on:
       - mongodb
-    environment:
-      - MONGO_URI=mongodb://mongodb:27017/iot_factory
 
   dashboard:
     build: ./dashboard
     ports:
       - "3000:3000"
-    depends_on:
-      - mongodb
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/iot_factory
+      API_URL: "http://backend:5000"
+    depends_on:
+      - backend
+
+  device-simulator:
+    build: ./device-simulator
+    environment:
+      CONFIG_FILE: "/app/config.yaml"
+    depends_on:
+      - backend
 
   mongodb:
     image: mongo:5.0
